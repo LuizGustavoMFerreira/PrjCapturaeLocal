@@ -1,0 +1,39 @@
+/**/
+
+body{
+  background-color: dimgray;
+}
+
+.container{
+  width: 95%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  background-color: whitesmoke;
+  border-radius: 5px 5px 5px 5px;
+}
+
+h2{
+  text-align: center;
+}
+
+#imgCamera{
+  width: 98%;
+}
+
+#imgFoto{
+  width: 98%;
+}
+
+.ft{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.rfoto{
+  text-align: center;
+}
+
+.ll{
+  max-width: 100%;
+}
