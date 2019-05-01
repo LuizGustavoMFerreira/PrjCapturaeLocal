@@ -1,6 +1,11 @@
 // This is a JavaScript file
 
+var click = new Audio();
+click.src = 'sound/click.mp3';
+
 function mudarParaFoto(){
+  document.getElementById("imgCamera").src = "img/camera.gif";
+  click.play();
   location.href = "foto.html";
 }
 
@@ -9,6 +14,7 @@ $(document).on("click", "#btnFoto", function(){
     destinationType: Camera.DestinationType.DATA_URL, saveToPhotoAlbum:true, });
 
   function onSuccess(imageData) {
+      click.play();
       var image = document.getElementById('imgFoto');
       image.src = "data:image/jpeg;base64," + imageData;
   }
@@ -17,3 +23,7 @@ $(document).on("click", "#btnFoto", function(){
       alert('Failed because: ' + message);
   }
 });
+
+function voltar(){
+  location.href = "index.html";
+}

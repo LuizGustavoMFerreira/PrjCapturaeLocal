@@ -13,8 +13,16 @@ body{
   border-radius: 5px 5px 5px 5px;
 }
 
+@font-face{
+  font-family: "balakhani";
+  src: url("../fonts/balakhani.ttf") format("truetype");
+}
+
 h2{
   text-align: center;
+  font-family: balakhani;
+  font-style: bold;
+  font-size: 35px;
 }
 
 #imgCamera{
@@ -36,4 +44,14 @@ h2{
 
 .ll{
   max-width: 100%;
+}
+
+label{
+  font-family: verdana;
+}
+
+.botao{
+  font-family: balakhani;
+  font-size: 18px;
+  align-content: middle;
 }
