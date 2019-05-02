@@ -25,7 +25,7 @@ $(document).on("click", "#btnFoto", function(){
       var map = L.mapquest.map('map', {
       center: [position.coords.latitude, position.coords.longitude],
       layers: L.mapquest.tileLayer('map'),
-      zoom: 12
+      zoom: 15
       });
 
       map.addControl(L.mapquest.control());
