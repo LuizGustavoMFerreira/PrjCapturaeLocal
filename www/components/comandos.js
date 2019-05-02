@@ -36,14 +36,30 @@ $(document).on("click", "#btnFoto", function(){
       alert('Failed because: ' + message);
   }
 
-  function valLat(){
-    position.coords.latitude;
-  }
+  document.addEventListener("deviceready", onDeviceReady, false);
+  function onDeviceReady() {
+  console.log("navigator.geolocation works well");
+  }       
 
-  function valLng(){
-    positiom.coords.longitude;
-  }
+  var onSuccess = function(position) {
+    (valLat == position.coords.latitude && valLgn == position.coords.longitude  );
+};
 
+var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
+ [geolocationError],
+ [geolocationOptions]); 
+
+ function onSuccess(position) {
+    var element = document.getElementById('imgFoto');
+    element.innerHTML = valLat == position.coords.latitude      
+                        valLgn == position.coords.longitude;
+}
+
+function getWeatherLocation() {
+
+    navigator.geolocation.getCurrentPosition
+    (onWeatherSuccess, onWeatherError, { enableHighAccuracy: true });
+}  
 });
 function voltar(){
   location.href = "index.html";
