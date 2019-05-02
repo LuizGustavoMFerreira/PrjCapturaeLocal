@@ -17,13 +17,34 @@ $(document).on("click", "#btnFoto", function(){
       click.play();
       var image = document.getElementById('imgFoto');
       image.src = "data:image/jpeg;base64," + imageData;
-  }
 
+      var onSuccess = function(position) {
+
+      L.mapquest.key = 'Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL';
+
+      var map = L.mapquest.map('map', {
+      center: [position.coords.latitude, position.coords.longitude],
+      layers: L.mapquest.tileLayer('map'),
+      zoom: 12
+      });
+
+      map.addControl(L.mapquest.control());
+    };
+
+  }
   function onFail(message) {
       alert('Failed because: ' + message);
   }
-});
 
+  function valLat(){
+    position.coords.latitude;
+  }
+
+  function valLng(){
+    positiom.coords.longitude;
+  }
+
+});
 function voltar(){
   location.href = "index.html";
 }
