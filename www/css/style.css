@@ -9,7 +9,7 @@ body{
   margin-top: 30px;
   margin-bottom: 30px;
   padding-bottom: 30px;
-  background-color: whitesmoke;
+  background: linear-gradient(to bottom, #33cccc 0%, #006666 100%);
   border-radius: 5px 5px 5px 5px;
 }
 
@@ -23,6 +23,7 @@ h2{
   font-family: balakhani;
   font-style: bold;
   font-size: 35px;
+  color: white;
 }
 
 #imgCamera{
@@ -31,6 +32,9 @@ h2{
 
 #imgFoto{
   width: 98%;
+  border-width: 2px;
+  border-style: inset;
+  border-color: whitesmoke;
 }
 
 .ft{
@@ -47,7 +51,9 @@ h2{
 }
 
 label{
-  font-family: verdana;
+  font-family: balakhani;
+  font-size: 18px;
+  color: white;
 }
 
 .botao{
