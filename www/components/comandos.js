@@ -18,48 +18,46 @@ $(document).on("click", "#btnFoto", function(){
       var image = document.getElementById('imgFoto');
       image.src = "data:image/jpeg;base64," + imageData;
 
-      var onSuccess = function(position) {
 
-      L.mapquest.key = 'Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL';
+          var onSuccess = function(position) {
+            $ ("#valLat").val(position.coords.latitude);
+            $ ("#valLng").val(position.coords.longitude);
+        };
 
-      var map = L.mapquest.map('map', {
-      center: [position.coords.latitude, position.coords.longitude],
-      layers: L.mapquest.tileLayer('map'),
-      zoom: 15
-      });
+        // onError Callback receives a PositionError object
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
 
-      map.addControl(L.mapquest.control());
-    };
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
+       function mapa(position){
+
+          L.mapquest.key = 'Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL';
+
+          var map = L.mapquest.map('map', {
+          center: [position.coords.latitude, position.coords.longitude],
+          layers: L.mapquest.tileLayer('map'),
+          zoom: 15
+          });
+
+          L.marker([position.coords.latitude, position.coords.longitude], {
+              icon: L.mapquest.icons.marker(),
+              draggable: false
+            }).bindPopup('Denver, CO').addTo(map);
+
+            L.circle([position.coords.latitude, position.coords.longitude], { radius: 200 }).addTo(map);
+
+          map.addControl(L.mapquest.control());
+        };
+        navigator.geolocation.getCurrentPosition(mapa);
   }
   function onFail(message) {
       alert('Failed because: ' + message);
   }
 
-  document.addEventListener("deviceready", onDeviceReady, false);
-  function onDeviceReady() {
-  console.log("navigator.geolocation works well");
-  }       
-
-  var onSuccess = function(position) {
-    (valLat == position.coords.latitude && valLgn == position.coords.longitude  );
-};
-
-var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
- [geolocationError],
- [geolocationOptions]); 
-
- function onSuccess(position) {
-    var element = document.getElementById('imgFoto');
-    element.innerHTML = valLat == position.coords.latitude      
-                        valLgn == position.coords.longitude;
-}
-
-function getWeatherLocation() {
-
-    navigator.geolocation.getCurrentPosition
-    (onWeatherSuccess, onWeatherError, { enableHighAccuracy: true });
-}  
 });
 function voltar(){
   location.href = "index.html";
