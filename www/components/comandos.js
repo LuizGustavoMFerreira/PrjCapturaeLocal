@@ -6,7 +6,7 @@ click.src = 'sound/click.mp3';
 function mudarParaFoto(){
   document.getElementById("imgCamera").src = "img/camera.gif";
   click.play();
-  location.href = "foto.html";
+  window.setTimeout('location.href = "foto.html"', 1000);
 }
 
 $(document).on("click", "#btnFoto", function(){
